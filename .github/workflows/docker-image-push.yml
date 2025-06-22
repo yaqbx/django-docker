@@ -27,11 +27,11 @@ jobs:
     
     - name: Build Docker image
       run: |
-        TIMESTAMP=$(date +"%Y-%m-%d-%H:%M")
+        TIMESTAMP=$(date +"%Y%m%d%H%M")
         docker build -t ${{ secrets.DOCKER_HUB_USERNAME }}/django-mysql-app:$TIMESTAMP .
 
     - name: Push Docker image
       run: |
-        docker push ${{ secrets.DOCKER_HUB_USERNAME }}/django-mysql-app:latest
+        docker push ${{ secrets.DOCKER_HUB_USERNAME }}/django-mysql-app:$TIMESTAMP
     
       
