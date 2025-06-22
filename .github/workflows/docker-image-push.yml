@@ -28,6 +28,7 @@ jobs:
     - name: Build Docker image
       run: |
         TIMESTAMP=$(date +"%Y%m%d%H%M")
+        echo "::set-env name=TIMESTAMP::$TIMESTAMP"
         docker build -t ${{ secrets.DOCKER_HUB_USERNAME }}/django-mysql-app:$TIMESTAMP .
 
     - name: Push Docker image
