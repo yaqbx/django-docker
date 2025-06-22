@@ -25,14 +25,14 @@ jobs:
         username: ${{ secrets.DOCKER_HUB_USERNAME }}
         password: ${{ secrets.DOCKER_HUB_PASSWORD }}
     
-    - name: Build Docker image
+    - name: Build Docker image and push to hub
       run: |
         TIMESTAMP=$(date +"%Y%m%d%H%M")
-        echo "::set-env name=TIMESTAMP::$TIMESTAMP"
         docker build -t ${{ secrets.DOCKER_HUB_USERNAME }}/django-mysql-app:$TIMESTAMP .
-
-    - name: Push Docker image
-      run: |
         docker push ${{ secrets.DOCKER_HUB_USERNAME }}/django-mysql-app:$TIMESTAMP
+    
+    #- name: Push Docker image
+    #  run: |
+    #    docker push ${{ secrets.DOCKER_HUB_USERNAME }}/django-mysql-app:$TIMESTAMP
     
       
