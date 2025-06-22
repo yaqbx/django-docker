@@ -18,8 +18,10 @@ from django.contrib import admin
 from django.urls import path
 from myapp.views import hello_world
 from myapp.views import hello_space
+from myapp.views import update3
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('hello/', hello_world),
-    path('space/', hellow_space)
+    path('space/', hello_space),
+    path('upate3', update3)
 ]

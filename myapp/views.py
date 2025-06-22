@@ -6,3 +6,6 @@ def hello_world(request):
 
 def hello_space(request):
     return HttpResponse("Hello, Space!")
+
+def update3(request):
+    return HttpResponse("Hello, Update3")
