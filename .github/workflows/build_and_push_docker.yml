@@ -24,9 +24,26 @@ jobs:
       - name: Push Docker image
         run: docker push your-dockerhub-username/django-docker-app:latest
 
-      - name: Trigger Deployment Workflow
-        uses: appleboy/trigger-workflow-action@v1
+      - name: Trigger Github workflow
+  # You may pin to the exact commit or the version.
+  # uses: yakubique/trigger-github-workflow@5dcfcea92d62b4723e3cbad8bc1c415b654d1007
+        uses: yakubique/trigger-github-workflow@v1
         with:
-          workflow-id: deploy-to-ec2
-          workflow-branch: main
-          token: ${{ secrets.GITHUB_TOKEN }}
+    # Owner/repository
+        repository: yaqbx/django-docker 
+    # Workflow ID or workflow's filename
+        workflow: deploy-to-ec2 
+    # Github token
+        token: ${{ github.token }}
+    # Reference branch
+        ref: main
+    # Workflow parameters as JSON string
+        params: # optional
+          
+          
+#      - name: Trigger Deployment Workflow
+#        uses: appleboy/trigger-workflow-action@v1
+#        with:
+#          workflow-id: deploy-to-ec2
+#          workflow-branch: main
+#          token: ${{ secrets.GITHUB_TOKEN }}
