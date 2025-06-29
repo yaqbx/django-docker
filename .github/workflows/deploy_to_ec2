@@ -1,0 +1,24 @@
+name: Deploy to EC2
+
+on:
+  workflow_dispatch:
+    inputs:
+      image_tag:
+        description: "Docker image tag to deploy"
+        required: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: SSH into EC2
+        uses: appleboy/ssh-action@v2
+        with:
+          host: 16.171.23.80
+          username: ubuntu
+          key: ${{ secrets.EC2_SSH_KEY }}
+          script: |
+            sudo docker stop django-docker-app || true
+            sudo docker rm django-docker-app || true
+            sudo docker pull your-dockerhub-username/django-docker-app:${{ inputs.image_tag }}
+            sudo docker run -d -p 8000:8000 --name django-docker-app your-dockerhub-username/django-docker-app:${{ inputs.image_tag }}
