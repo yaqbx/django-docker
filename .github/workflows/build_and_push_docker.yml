@@ -32,7 +32,7 @@ jobs:
     # Owner/repository
         repository: yaqbx/django-docker 
     # Workflow ID or workflow's filename
-        workflow: deploy-to-ec2 
+        workflow: deploy_to_ec2 
     # Github token
         token: ${{ github.token }}
     # Reference branch
