@@ -14,9 +14,8 @@ jobs:
       - name: SSH into EC2
         uses: appleboy/ssh-action@v2
         with:
-          host: your-ec2-public-ip
+          host: 16.171.23.80
           username: ubuntu
-          password: ${{ secrets.EC2_SSH_PASSWORD }}
           key: ${{ secrets.EC2_SSH_KEY }}
           script: |
             sudo docker stop django-docker-app || true
