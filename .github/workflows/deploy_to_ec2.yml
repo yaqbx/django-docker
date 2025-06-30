@@ -22,5 +22,4 @@ jobs:
             sudo docker stop  django-mysql-app || true
             sudo docker rm django-mysql-app || true
             sudo docker pull yaqbx/django-mysql-app:${{ inputs.image_tag }}
-            
-          #sudo docker run -d -p 8000:8000 --name django-mysql-app yaqbx/django-mysql-app:${{ inputs.image_tag }}
+            sudo docker run -d -p 8000:8000 --name django-mysql-app yaqbx/django-mysql-app:${{ inputs.image_tag }}
