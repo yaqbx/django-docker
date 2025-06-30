@@ -30,15 +30,15 @@ jobs:
         uses: yakubique/trigger-github-workflow@v1
         with:
     # Owner/repository
-        repository: yaqbx/django-docker 
+          repository: yaqbx/django-docker 
     # Workflow ID or workflow's filename
-        workflow: deploy_to_ec2 
+          workflow: deploy_to_ec2 
     # Github token
-        token: ${{ github.token }}
+          token: ${{ github.token }}
     # Reference branch
-        ref: main
+          ref: main
     # Workflow parameters as JSON string
-        params: # optional
+          params: # optional
           
           
 #      - name: Trigger Deployment Workflow
