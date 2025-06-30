@@ -45,7 +45,7 @@ jobs:
     # Workflow ID or workflow's filename
           workflow: deploy_to_ec2 
     # Github token
-          token: ${{ github.token }}
+          token: ${{ secrets.TOKEN_WITH_SCOPE }}
     # Reference branch
           ref: main
     
